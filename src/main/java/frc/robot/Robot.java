@@ -76,6 +76,9 @@ public class Robot extends TimedRobot {
     // get color
     Color detectedColor = m_colorsensor.getColor();
 
+    // get range
+    int proximity = m_colorsensor.getProximity();
+
     // does it match a color we want?
     String colorString;
     ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
@@ -100,8 +103,15 @@ public class Robot extends TimedRobot {
     {
       colorString = "Unknown Color";
     }
-    
-    System.out.println(colorString);
+    // Console bad
+    // System.out.println(colorString);
+
+    // Dashboard good
+    //SmartDashboard.putString("Color", colorString);
+    SmartDashboard.putNumber("Red", detectedColor.red);
+    SmartDashboard.putNumber("Green", detectedColor.green);
+    SmartDashboard.putNumber("Blue", detectedColor.blue);
+    SmartDashboard.putNumber("Proximity", proximity);
   }
 
   /**
