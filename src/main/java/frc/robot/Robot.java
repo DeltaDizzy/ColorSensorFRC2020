@@ -43,10 +43,10 @@ public class Robot extends TimedRobot {
    */
   private final ColorMatch m_colorMatcher = new ColorMatch();
   // wheel colors
-  private final Color kPanelBlue = ColorMatch.makeColor(0, 1, 1);
-  private final Color kPanelGreen = ColorMatch.makeColor(0, 1, 0);
-  private final Color kPanelRed = ColorMatch.makeColor(1, 0, 0);
-  private final Color kPanelYellow = ColorMatch.makeColor(1, 1, 0);
+  private final Color kPanelBlue = ColorMatch.makeColor(0.11, 0.43, 0.46);
+  private final Color kPanelGreen = ColorMatch.makeColor(0.15, 0.59, 0.25);
+  private final Color kPanelRed = ColorMatch.makeColor(0.56, 0.32, 0.12);
+  private final Color kPanelYellow = ColorMatch.makeColor(0.31 , 0.57, 0.11);
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -107,11 +107,12 @@ public class Robot extends TimedRobot {
     // System.out.println(colorString);
 
     // Dashboard good
-    //SmartDashboard.putString("Color", colorString);
+    SmartDashboard.putString("Currrent Wheel Color", colorString);
     SmartDashboard.putNumber("Red", detectedColor.red);
     SmartDashboard.putNumber("Green", detectedColor.green);
     SmartDashboard.putNumber("Blue", detectedColor.blue);
     SmartDashboard.putNumber("Proximity", proximity);
+    SmartDashboard.putNumber("Confidence", match.confidence);
   }
 
   /**
